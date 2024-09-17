@@ -1,0 +1,8 @@
+<!-- blog/templates/blog/lista_posts.html -->
+<h1>Lista de Posts</h1>
+<ul>
+    {% for post in posts %}
+        <li><a href="{% url 'detalhe_post' post.id %}">{{ post.titulo }}</a> - {{ post.data_publicacao }}</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'criar_post' %}">Criar novo post</a>

@@ -1,0 +1,13 @@
+<!-- blog/templates/blog/criar_post.html -->
+<h1>Criar novo post</h1>
+<form method="POST">
+    {% csrf_token %}
+    <label for="titulo">Título:</label><br>
+    <input type="text" name="titulo" id="titulo"><br>
+    <label for="conteudo">Conteúdo:</label><br>
+    <textarea name="conteudo" id="conteudo"></textarea><br>
+    <button type="submit">Criar</button>
+</form>
+<a href="{% url 'lista_posts' %}">Voltar</a>
+
+
