@@ -1,29 +1,31 @@
-<!-- blog/templates/base.html -->
-{% load static %}
+{% load static %}  <!-- Carrega a tag 'static' para usar arquivos estáticos como CSS, imagens, etc. -->
+
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR">  <!-- Define o idioma do documento como Português do Brasil -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Blog</title>
-    <link rel="stylesheet" href="{% static 'blog/css/styles.css' %}">
+    <meta charset="UTF-8">  <!-- Define a codificação de caracteres como UTF-8, garantindo suporte a caracteres especiais -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Ajusta a exibição para dispositivos móveis, garantindo uma boa experiência em diferentes tamanhos de tela -->
+    <title>Meu Blog</title>  <!-- Título da página que será exibido na aba do navegador -->
+    <link rel="stylesheet" href="{% static 'blog/css/styles.css' %}">  <!-- Vincula o arquivo CSS ao template, usando a tag 'static' para apontar para o caminho correto do arquivo CSS -->
 </head>
 <body>
     <header>
-        <h1>Meu Blog</h1>
-        <img src="{% static 'blog/images/img.jpeg' %}" alt="Logo do Blog" style="width: 800px;">
-        <nav>
-        <nav>
-            <a href="{% url 'lista_posts' %}">Home</a>
-            <a href="{% url 'criar_post' %}">Criar Post</a>
+        <h1>Meu Blog</h1>  <!-- Título principal do blog, que aparecerá no cabeçalho -->
+        <img src="{% static 'blog/images/img.jpeg' %}" alt="Logo do Blog" style="width: 800px;">  <!-- Exibe uma imagem estática como logo do blog, com um tamanho definido de 800px -->
+        <nav>  <!-- Início da seção de navegação do site -->
+            <a href="{% url 'lista_posts' %}">Home</a>  <!-- Link para a página inicial (lista de posts), usando a tag 'url' para gerar a URL dinâmica -->
+            <a href="{% url 'criar_post' %}">Criar Post</a>  <!-- Link para a página de criação de um novo post -->
         </nav>
     </header>
+    
     <main>
-        {% block content %}
+        {% block content %}  <!-- Define um bloco de conteúdo que pode ser sobrescrito em outros templates que herdam deste -->
         {% endblock %}
     </main>
+
     <footer>
-        <p>© 2024 Meu Blog - Todos os direitos reservados.</p>
+        <p>© 2024 Meu Blog - Todos os direitos reservados.</p>  <!-- Rodapé do site com informações de copyright -->
     </footer>
 </body>
 </html>
+
