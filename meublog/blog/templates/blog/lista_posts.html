@@ -1,8 +1,17 @@
-<!-- blog/templates/blog/lista_posts.html -->
+{% extends 'base.html' %}
+
+{% block content %}
 <h1>Lista de Posts</h1>
 <ul>
     {% for post in posts %}
-        <li><a href="{% url 'detalhe_post' post.id %}">{{ post.titulo }}</a> - {{ post.data_publicacao }}</li>
+    <li>
+        {% if post.imagem_destacada %}
+            <img src="{{ post.imagem_destacada.url }}" alt="{{ post.titulo }}" style="max-width: 100px;">
+        {% endif %}
+        <a href="{% url 'detalhe_post' post.id %}">{{ post.titulo }}</a>
+        <p><small>Publicado em: {{ post.data_publicacao }}</small></p>
+    </li>
     {% endfor %}
 </ul>
-<a href="{% url 'criar_post' %}">Criar novo post</a>
+{% endblock %}
+

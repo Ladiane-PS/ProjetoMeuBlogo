@@ -1,0 +1,29 @@
+<!-- blog/templates/base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Blog</title>
+    <link rel="stylesheet" href="{% static 'blog/css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Meu Blog</h1>
+        <img src="{% static 'blog/images/img.jpeg' %}" alt="Logo do Blog" style="width: 800px;">
+        <nav>
+        <nav>
+            <a href="{% url 'lista_posts' %}">Home</a>
+            <a href="{% url 'criar_post' %}">Criar Post</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <p>© 2024 Meu Blog - Todos os direitos reservados.</p>
+    </footer>
+</body>
+</html>
